@@ -18,6 +18,18 @@
     text-align: center;
     
 }
+nav {
+    font-size: 1.3rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+#timer {
+    float: right;
+    padding-right: 70px;
+}
 
 #start-button{
     box-shadow: 3px 4px 0px 0px #1564ad;
