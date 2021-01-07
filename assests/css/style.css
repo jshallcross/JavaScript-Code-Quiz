@@ -1,68 +1,41 @@
+body {
+    background-color: lightgray;
+}
+/* wrapper div styles */
 #wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 20px;
-   
-    
+    padding-bottom: 20px;  
 }
 
 #wrapper h1 {
     font-weight: bold;
     font-size: 4rem;
-    
 }
 
 #wrapper p {
     font-size: 2rem;
-    text-align: center;
-    
+    text-align: center;  
 }
+
+
 nav {
     font-size: 1.3rem;
 }
 
 a {
     text-decoration: none;
+    color: black;
 }
 
 #timer {
     float: right;
     padding-right: 70px;
 }
-
-#start-button{
-    box-shadow: 3px 4px 0px 0px #1564ad;
-    background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
-    background-color:#79bbff;
-    border-radius:5px;
-    border:1px solid #337bc4;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:17px;
-    font-weight:bold;
-    padding:12px 44px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #528ecc;  
-}
-
-#questions-div {
-    font-size: 1.5rem;
-    text-align: center;
-}
-
-#createH1 {
-    font: bold;
-    font-size: 2rem;
-}
-#creatDiv {
-    padding: 20px;
-}
-
-li {
+/* Button Style */
+#start-button, #Submit, li{
     box-shadow: 3px 4px 0px 0px #1564ad;
     background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
     background-color:#79bbff;
@@ -77,10 +50,46 @@ li {
     padding:12px 44px;
     text-decoration:none;
     text-shadow:0px 1px 0px #528ecc;
-    margin: 10px;
+    margin: 10px;  
 }
 
+#questions-div {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+input {
+    background-color: antiquewhite;
+    font-size: x-large; 
+ }
 
 footer {
     float:right;
 }
+
+/* Leader Board button Styles */
+
+#home {
+    background-color:#080bc4;
+    border-radius:5px;
+    display:inline-block;
+    color:black;
+    font-size:17px;
+    font-weight:bold;
+    padding:12px 44px;
+    text-decoration:none;
+    margin: 10px;
+}
+
+#clear {
+    background-color:#b10808;
+    border-radius:5px;
+    display:inline-block;
+    color:black;
+    font-size:17px;
+    font-weight:bold;
+    padding:12px 44px;
+    text-decoration:none;
+    margin: 10px;
+}
+
