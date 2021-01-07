@@ -72,10 +72,13 @@ questionIndex ++;
 if (questionIndex >= questions.length){
     alert("Test");
     quizOver();
+    
     if (correctAnswers === 1) {
         createDiv.textContent = "You got " + correctAnswers + " question right!";
+        createDiv.style.padding = "20px";
     } else {
         createDiv.textContent = "You got " + correctAnswers + " questions right!";
+        createDiv.style.padding = "20px";
     }
     
     
@@ -100,7 +103,55 @@ function quizOver(){
         createPara.textContent = "Your final score is: " + timeRemaining;
         questionsDiv.appendChild(createPara);
     }
-     
+    var createLabel = document.createElement("label");
+    createLabel.setAttribute("id", "createLabel");
+    createLabel.textContent = "Enter your initials to be put on the leaderboard: ";
+
+    questionsDiv.appendChild(createLabel);
+
+    
+    var createInput = document.createElement("input");
+    createInput.setAttribute("type", "text");
+    createInput.setAttribute("id", "initials");
+    createInput.textContent = "";
+
+    questionsDiv.appendChild(createInput);
+
+   
+    var createSubmit = document.createElement("button");
+    createSubmit.setAttribute("type", "submit");
+    createSubmit.setAttribute("id", "Submit");
+    createSubmit.textContent = "Submit";
+
+    questionsDiv.appendChild(createSubmit);
+
+    
+    createSubmit.addEventListener("click", function () {
+        var initials = createInput.value;
+
+        if (initials === null) {
+
+            console.log("No value entered!");
+
+        } else {
+            var finalScore = {
+                initials: initials,
+                score: timeRemaining
+            }
+            console.log(finalScore);
+            var allScores = localStorage.getItem("allScores");
+            if (allScores === null) {
+                allScores = [];
+            } else {
+                allScores = JSON.parse(allScores);
+            }
+            allScores.push(finalScore);
+            var newScore = JSON.stringify(allScores);
+            localStorage.setItem("allScores", newScore);
+            // Travels to final page
+            window.location.replace("./scores.html");
+        }
+    });
 
  
 }

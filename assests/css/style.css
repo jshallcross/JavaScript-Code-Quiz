@@ -58,6 +58,9 @@ a {
     font: bold;
     font-size: 2rem;
 }
+#creatDiv {
+    padding: 20px;
+}
 
 li {
     box-shadow: 3px 4px 0px 0px #1564ad;
