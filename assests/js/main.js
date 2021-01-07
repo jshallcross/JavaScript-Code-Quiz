@@ -61,13 +61,14 @@ function checkAnswer(event) {
     if (answer.textContent == questions[questionIndex].answer){
         //add to correct answer total
         correctAnswers ++;
+        timeLeft = timeLeft +5;
         createDiv.textContent = "Correct! The answer is " + questions[questionIndex].answer;
     }
     else {
         //else grabs incorrect answers
         createDiv.textContent = "Incorrect! The answer was " + questions[questionIndex].answer;
         //deducts time for incorrect answer
-        timeLeft = timeLeft -5;
+        timeLeft = timeLeft -10;
 
     }
 // changes index to get new question
@@ -133,8 +134,8 @@ function quizOver(){
     createSubmit.addEventListener("click", function () {
         var initials = createInput.value;
         //checks for null user input
-        if (initials === null) {
-            console.log("No value entered!");
+        if (!initials) {
+            alert("Please enter your initials for the leaderboard");
         } else {
             var finalScore = {
                 initials: initials,
