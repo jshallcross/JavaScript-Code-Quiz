@@ -14,13 +14,14 @@ var correctAnswers = 0;
 function countdown(event){
     event.preventDefault();
     var timeInterval = setInterval(function(){
-        if (timeLeft > 1) {
+        if (timeLeft > 0) {
             timerSpanEl.textContent = timeLeft;
             timeLeft --;           
         } 
         else {
             timerSpanEl.textContent ="";
             clearInterval(timeInterval);
+            quizOver();
         }
     }, 1000);
     showQuestions(questionIndex);
@@ -40,7 +41,6 @@ function showQuestions(questionIndex) {
     }
     //creates the possible answer elements
     userChoices.forEach(function (newItem) {
-        debugger
         var listItem = document.createElement("li");
         listItem.textContent = newItem;
         questionsDiv.appendChild(ulCreate);
@@ -69,6 +69,9 @@ function checkAnswer(event) {
         createDiv.textContent = "Incorrect! The answer was " + questions[questionIndex].answer;
         //deducts time for incorrect answer
         timeLeft = timeLeft -10;
+        if (timeLeft === 0 ){
+            quizOver();
+        }
 
     }
 // changes index to get new question
@@ -92,7 +95,7 @@ else {
 questionsDiv.appendChild(createDiv);
 }
 
-//End of quiz function
+//End of quiz function 
 function quizOver(){
     //clears previous data
     questionsDiv.innerHTML = "";
@@ -128,8 +131,9 @@ function quizOver(){
     createSubmit.setAttribute("type", "submit");
     createSubmit.setAttribute("id", "Submit");
     createSubmit.textContent = "Submit";
-
+    
     questionsDiv.appendChild(createSubmit);
+        
     //Event listner for submit element
     createSubmit.addEventListener("click", function () {
         var initials = createInput.value;
